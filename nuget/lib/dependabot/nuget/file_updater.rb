@@ -149,7 +149,8 @@ module Dependabot
             ProjectFileDeclarationFinder.new(
               dependency_name: dependency.name,
               declaring_requirement: requirement,
-              dependency_files: dependency_files
+              dependency_files: dependency_files,
+              credentials: credentials
             )
           end
       end
