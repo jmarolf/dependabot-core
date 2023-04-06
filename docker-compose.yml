@@ -1,0 +1,146 @@
+version: '3.9'
+
+services:
+  bundler:
+    build:
+      context: .
+      dockerfile: bundler/Dockerfile
+    image: ghcr.io/dependabot/dependabot-updater-bundler
+    depends_on:
+      - core
+
+  cargo:
+    build:
+      context: .
+      dockerfile: cargo/Dockerfile
+    image: ghcr.io/dependabot/dependabot-updater-cargo
+    depends_on:
+      - core
+
+  common:
+    build:
+      context: .
+      dockerfile: common/Dockerfile
+    image: ghcr.io/dependabot/dependabot-updater-common
+    depends_on:
+      - core
+
+  composer:
+    build:
+      context: .
+      dockerfile: composer/Dockerfile
+    image: ghcr.io/dependabot/dependabot-updater-composer
+    depends_on:
+      - core
+
+  docker:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: ghcr.io/dependabot/dependabot-updater-docker
+    depends_on:
+      - core
+
+  elm:
+    build:
+      context: .
+      dockerfile: elm/Dockerfile
+    image: ghcr.io/dependabot/dependabot-updater-elm
+    depends_on:
+      - core
+
+  git_submodules:
+    build:
+      context: .
+      dockerfile: git_submodules/Dockerfile
+    image: ghcr.io/dependabot/dependabot-updater-git_submodules
+    depends_on:
+      - core
+
+  github_actions:
+    build:
+      context: .
+      dockerfile: github_actions/Dockerfile
+    image: ghcr.io/dependabot/dependabot-updater-github_actions
+    depends_on:
+      - core
+
+  go_modules:
+    build:
+      context: .
+      dockerfile: go_modules/Dockerfile
+    image: ghcr.io/dependabot/dependabot-updater-go_modules
+    depends_on:
+      - core
+
+  gradle:
+    build:
+      context: .
+      dockerfile: gradle/Dockerfile
+    image: ghcr.io/dependabot/dependabot-updater-gradle
+    depends_on:
+      - core
+
+  hex:
+    build:
+      context: .
+      dockerfile: hex/Dockerfile
+    image: ghcr.io/dependabot/dependabot-updater-hex
+    depends_on:
+      - core
+
+  maven:
+    build:
+      context: .
+      dockerfile: maven/Dockerfile
+    image: ghcr.io/dependabot/dependabot-updater-maven
+    depends_on:
+      - core
+
+  npm_and_yarn:
+    build:
+      context: .
+      dockerfile: npm_and_yarn/Dockerfile
+    image: ghcr.io/dependabot/dependabot-updater-npm_and_yarn
+    depends_on:
+      - core
+
+  nuget:
+    build:
+      context: .
+      dockerfile: nuget/Dockerfile
+    image: ghcr.io/dependabot/dependabot-updater-nuget
+    depends_on:
+      - core
+
+  pub:
+    build:
+      context: .
+      dockerfile: pub/Dockerfile
+    image: ghcr.io/dependabot/dependabot-updater-pub
+    depends_on:
+      - core
+
+  python:
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+    image: ghcr.io/dependabot/dependabot-updater-python
+    depends_on:
+      - core
+
+  terraform:
+    build:
+      context: .
+      dockerfile: terraform/Dockerfile
+      args:
+        - TARGETARCH=amd64
+    image: ghcr.io/dependabot/dependabot-updater-terraform
+    depends_on:
+      - core
+
+  core:
+    build:
+      context: .
+      dockerfile: Dockerfile.updater-core
+    image: ghcr.io/dependabot/dependabot-updater-core
