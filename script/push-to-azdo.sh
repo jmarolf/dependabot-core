@@ -3,7 +3,7 @@
 # Set your registry and additional tags
 REGISTRY="azdodependabot.azurecr.io/dependabot"
 GIT_SHA=$(git rev-parse --short HEAD)
-TIMESTAMP=$(date +"%Y-%m-%d-%H:%M:%S")
+TIMESTAMP=$(date +"%Y-%m-%d-%H%M%S")
 
 # List all ecosystem tags
 ECOSYSTEMS=(
